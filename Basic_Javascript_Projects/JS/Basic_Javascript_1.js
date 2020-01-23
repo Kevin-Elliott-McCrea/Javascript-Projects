@@ -4,4 +4,13 @@ var soccer = "ball", romance = "flowers", happy = "yeehaw";
     var romance = romance.fontcolor("blue");
     var happy = happy.fontcolor("green");
 
-document.write(happy)
+document.write(happy);
+
+
+
+
+
+
+            function sayHello() {
+               alert("Hello World")
+            }
