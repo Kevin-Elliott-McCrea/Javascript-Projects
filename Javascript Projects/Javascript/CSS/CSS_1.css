@@ -1,0 +1,18 @@
+form {
+    box-sizing: border-box;
+    top: 50px;
+    width: 50%;
+    height: 200px;
+    background-color: silver;
+    opacity: .5;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+}
+
+.form-spacing {
+    text-align: center;
+    margin-top: 30px;
+}
