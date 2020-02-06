@@ -149,7 +149,7 @@ function saveSettings() {
     var p2Index = document.getElementById("player2").selectedIndex;
     var p2Selected = document.getElementById("player2").options;
     if (p1Selected[p1Index].text == p2Selected[p2Index].text) {
-        alert("Error - Player 1 and Player 2 cannot both be assigned as: " +p1Selected[p1Index].text)
+        alert("Error - Player 1 and Player 2 cannot both be assigned as: "+p1Selected[p1Index].text)
     } else {
         document.getElementById('p1Display').innerHTML=p1Selected[p1Index].text;
         document.getElementById('p2Display').innerHTML=p2Selected[p2Index].text;
@@ -422,6 +422,8 @@ function checkWinCon2(info,squareArray) {
     if (match3Avatar != undefined && match4Avatar != undefined && match5Avatar != undefined) {
         if (match3Avatar == match4Avatar && match3Avatar == match5Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon2);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon2); 
@@ -445,6 +447,8 @@ function checkWinCon3(info,squareArray) {
     if (match6Avatar != undefined && match7Avatar != undefined && match8Avatar != undefined) {
         if (match6Avatar == match7Avatar && match6Avatar == match8Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon3);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon3); 
@@ -468,6 +472,8 @@ function checkWinCon4(info,squareArray) {
     if (match0Avatar != undefined && match3Avatar != undefined && match6Avatar != undefined) {
         if (match0Avatar == match3Avatar && match0Avatar == match6Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon4);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon4); 
@@ -491,6 +497,8 @@ function checkWinCon5(info,squareArray) {
     if (match1Avatar != undefined && match4Avatar != undefined && match7Avatar != undefined) {
         if (match1Avatar == match4Avatar && match1Avatar == match7Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon5);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon5); 
@@ -514,6 +522,8 @@ function checkWinCon6(info,squareArray) {
     if (match2Avatar != undefined && match5Avatar != undefined && match8Avatar != undefined) {
         if (match2Avatar == match5Avatar && match2Avatar == match8Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon6);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon6); 
@@ -537,6 +547,8 @@ function checkWinCon7(info,squareArray) {
     if (match6Avatar != undefined && match4Avatar != undefined && match2Avatar != undefined) {
         if (match6Avatar == match4Avatar && match6Avatar == match2Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon7);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon7); 
@@ -560,6 +572,8 @@ function checkWinCon8(info,squareArray) {
     if (match0Avatar != undefined && match4Avatar != undefined && match8Avatar != undefined) {
         if (match0Avatar == match4Avatar && match0Avatar == match8Avatar) {
             winDetected = "win";
+            winner(winDetected,winCon8);
+            return;
         }
     }
     winner(winDetected,winDetected,winCon8); 
@@ -738,9 +752,9 @@ function square8Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[7]; // paint avatar
-            if (paintAvatar == "0") { // change all these to ternary statements instead
+            if (paintAvatar == "O") { // change all these to ternary statements instead
                 animateO(selected); // call function to animate O
-            } else if (paintAvatar == "O") {
+            } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
             }
             // build new array adding the newly selected square and the assigned avatar
@@ -778,11 +792,10 @@ function square9Animate() {
 
 // this function will perform the animation for the O avatar.
 function animateO(selected) {
-    selected.style.transform = (selected.style.transform == "translateY(0%)" || null) ? "translateY(0%)" : "translate(0%)";
+	selected.style.transform = (selected.style.transform == "translateY(0%)" || null) ? "translateY(0%)" : "translateY(0%)";
 }
-
 
 // this function will perform the animation for the X avatar.
 function animateX(selected) {
-    selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0%)" : "translate(-100%)";
+	selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0%)" : "translateY(-100%)";
 }
