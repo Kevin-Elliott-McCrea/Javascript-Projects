@@ -39,7 +39,7 @@ function rollForTurn() {
         first = "Player 1";
         setTimeout(function(){ txt1 = txt1 + "Player 1 wins, please choose a square.";}, 2000);
         setTimeout(function() {writeMsg(txt1);}, 2000); 
-    } else if (pOne > pTwo) {
+    } else if (pOne < pTwo) {
         first = "Player 2";
         setTimeout(function(){ txt1 = txt1 + "Player 2 wins, please choose a square.";}, 2000);
         setTimeout(function() {writeMsg(txt1);}, 2000);
@@ -151,8 +151,8 @@ function saveSettings() {
     if (p1Selected[p1Index].text == p2Selected[p2Index].text) {
         alert("Error - Player 1 and Player 2 cannot both be assigned as: " +p1Selected[p1Index].text)
     } else {
-        document.getElementById('p1Display').innerHTML;
-        document.getElementById('p2Display').innerHTML;
+        document.getElementById('p1Display').innerHTML=p1Selected[p1Index].text;
+        document.getElementById('p2Display').innerHTML=p2Selected[p2Index].text;
     }
 }
 
@@ -183,8 +183,13 @@ function determineAvatar() {
 function avatarPlaced() {
     var parseText = document.getElementById('gameMsg').innerHTML;
     var showPlayer = document.getElementById('showPlayer'); // select the current element to memory
-    // check if there is already a winner... if there ism then dont continue the game
+    // check if there is already a winner... if there is then don't continue the game
     if (parseText == "That's three in a row, Player 1 wins!" || parseText == "That's three in a row. Player 2 wins!"){
+        showPlayer.innerHTML = "Game Stopped";
+        showPlayer.style.color='red';
+    } 
+    activePlayer = showPlayer.innerHTML;
+    if (activePlayer == "Player 1") {
         showPlayer.innerHTML = "Player 2";
     } else {
         showPlayer.innerHTML = "Player 1";
@@ -199,17 +204,6 @@ function check(info,square) {
         var tempInfo = info[i].charAt(0); // comparing index of square
         if (tempInfo == square) {
             return tempInfo;
-        }
-    }
-}
-
-// as squares are selected they check in with this function to see if that particular 
-// square has already been assigned and if it has not, record new square with the assigned avatar.
-function check(info,square) {
-    for (var i in info) {
-        var tempInfo = info[i].charAt(0); // comparing index of square
-        if (tempInfo == square) {
-            return tempInfo
         }
     }
 }
@@ -309,12 +303,12 @@ function glowBoard(pos) {
             setTimeout(function() {bg1.style.backgroundColor = '#d7f3f7';}, 1100);
         } else if (i == index1) {
             var bg2 = squares[i];
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 179, 66';}, 100);
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 238, 66';}, 200);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(66, 244, 235)';}, 100);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(122, 244, 66)';}, 200);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(197, 244, 66';}, 300);
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(122, 244, 66';}, 400);
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(66, 244, 235';}, 500);
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 179, 66';}, 600);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 238, 66)';}, 400);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 179, 66)';}, 500);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(66, 244, 235)';}, 600);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 238, 66';}, 700);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(197, 244, 66';}, 800);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(122, 244, 66';}, 900);
@@ -784,10 +778,11 @@ function square9Animate() {
 
 // this function will perform the animation for the O avatar.
 function animateO(selected) {
-    selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0)" : "translate(-100%)";
+    selected.style.transform = (selected.style.transform == "translateY(0%)" || null) ? "translateY(0%)" : "translate(0%)";
 }
+
 
 // this function will perform the animation for the X avatar.
 function animateX(selected) {
-    selected.style.transform = (selected.style.transform == "translateY(100%)" || null) ? "translateY(0)" : "translate(100%)";
+    selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0%)" : "translate(-100%)";
 }
