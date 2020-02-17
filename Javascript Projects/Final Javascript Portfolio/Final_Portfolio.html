@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <title>Kevin Elliott McCrea</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/Final_Portfolio.css">
+        <script src="JS/Final_Portfolio.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      
     </head>
 
 <!-- Body -->
@@ -53,16 +53,16 @@
                 <p>
                     <strong>
                         <center>
-                            <q>"If you go back a few hundred years, what we take for granted today would seem like 
+                            <q>If you go back a few hundred years, what we take for granted today would seem like 
                                 <br>magic-being able to talk to people over long distances, to transmit images, flying, 
                                 <br>accessing vast amounts of data like an oracle. These are all things that would have 
-                                <br>been considered magic a few hundred years ago."
+                                <br>been considered magic a few hundred years ago.
                             </q>
                             <br>-Elon Musk<br>
                             <br>
-                            I'm Kevin, and this is the kind of excitement I get from working with technology. 
-                            <br>I am seeking out opportunities to improve my skills and contribute to society,
-                            <br>so show me an opportunity and I will rise to the occasion. <br><br>I have some more details about me below, so go ahead and read on.<br>
+                            I'm Kevin, and this is the kind of enthusiasm I bring to working with technology. 
+                            <br>There is no limit to what we can create with it, so I aim to improve my skills while contributing
+                            <br>to society at the same time. Show me an opportunity and I will rise to the occasion! <br><br>I have some more details about me below, so go ahead and read on.<br>
                             <br>Thanks for taking the time to be here!
                         </center>
                     </strong>
@@ -75,37 +75,37 @@
             <div id="Slideshow_Container">
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">1 / 6</div>
+                    <div class="Slide_Number">1 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/Personal_Portrait.jpg" style="width: 100%;">
                             <div class="text">I'm available to assist you on your project!</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">2 / 6</div>
+                    <div class="Slide_Number">2 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width: 100%;">
                             <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">3 / 6</div>
+                    <div class="Slide_Number">3 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/Python.png" style="width: 100%;">
                             <div class="text">the popular programming language Python,</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">4 / 6</div>
+                    <div class="Slide_Number">4 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/C_Sharp_and_Dot_NET.png" style="width: 100%;">
                             <div class="text">C#, .NET Framework, ASP.NET, MVC,</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">5 / 6</div>
+                    <div class="Slide_Number">5 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/SQL_and_Database.jpg" style="width: 100%;">
                             <div class="text">back end development, databases and SQL.</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="Slide Number">6 / 6</div>
+                    <div class="Slide_Number">6 / 6</div>
                         <img class="Slide_Show_Images" src="Stylesheet/Images/Coding_1.jpg" style="width: 100%;">
                             <div class="text">
                                 <a onclick="openForm()" href="#Contact" style="color: white;">Contact me now!</a>
@@ -146,7 +146,7 @@
             var slides = document.getElementsByClassName("mySlides");
             var dots = document.getElementsByClassName("dot");
                 if(n > slides.length) {slideIndex = 1}
-                if(n < slides.length) {slideIndex = slides.length}
+                if(n < 1) {slideIndex = slides.length}
                     for (i = 0; i < slides.length; i++) {
                         slides[i].style.display = "none";
                     }
@@ -168,11 +168,12 @@
                 <h1>About</h1>
                     <p>I've always been an avid problem solver in life, especially in technology. 
                         That coupled with my ability to communicate and understand other people's reality will 
-                        work wonders in software development teams now that I am trained in coding.
+                        work wonders in software development teams now that I am trained in coding 
+                        <br>through The Tech Academy's Software Developer Bootcamp.
                         <br>
                      <br><br>
                     I am more than happy to discuss any business ideas, whether it may be a job, 
-                    contract or more of a business venture. Don't hesitate to reach out.<br> <a href="#Contact">Contact</a> me below!</p>
+                    contract or more of a business venture. Don't hesitate to reach out.<br><br>
             </div>
         </div>
 
@@ -190,26 +191,25 @@
         </div>
 
 <!-- Contact section -->
-        <div id="Contact">
-            <button onclick="openForm()" class="Pop_Up_Button"> CONTACT </button>
-                <div class="form-popup" id="myForm">
-                    <form action="https://formspree.io/kleiben@gmail.com" method="POST" class="form-container"></form>
-                    <h1>Contact</h1>
-                        <form action="" method="get"> 
-                            <label for="name">Name:</label>
-                                <input type="text" placeholder="Please enter your name here" name="name" required>
-                            <label for="phone">Phone:</label>
-                                <input type="text" id="Phone" name="Phone" placeholder="Please enter your phone number here">
-                            <label for="email">Email:</label>
-                                <input type="text" id="Email" name="Email" placeholder="Please enter your email address here">
-                            <label for="message">Message:</label>
-                                <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-
-            <button type="submit" class="btn">SUBMIT</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
-                    </form>
-                </div>
-        </div>
+<div id="Contact"> 
+    <button onclick="openForm()" class="Pop_Up_Button"> CONTACT </button>
+	  <div class="form-popup" id="myForm">
+	    <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container"> <!-- Here we are using a free online service from https://formspree.io/ to send our contact form to an email address of our choosing - note: it will not run unless live on the internet, you have to push it to your online website first -->
+		<h1>Contact</h1>
+			<label for="name"><b>Name</b></label>
+			  <input type="text" placeholder="Type your name here" name="name" required>
+			<label for="phone"><b>Phone</b></label>
+			  <input type="text" placeholder="Enter your phone number here" name="phone">
+			<label for="email"><b>Email</b></label>		
+			  <input type="text" placeholder="Type your email address here" name="email" required>
+			<label for="message"><b>Message</b></label>
+			  <input type="text" placeholder="Type your message here" name="message">
+ 
+    <button type="submit" class="btn">SUBMIT</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+	    </form>
+	  </div>
+  </div>
 
 <!-- Footer section -->
         <footer>
@@ -218,6 +218,6 @@
             </p>
         </footer>
 
-    <script src="JS/Final_Portfolio.js"></script>
+    
     </body>
 </html>

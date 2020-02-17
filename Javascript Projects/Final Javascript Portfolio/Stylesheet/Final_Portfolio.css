@@ -3,7 +3,6 @@ html {
     scroll-behavior: smooth; /* This ensures that the page scrolling is smooth when the nav bar is clicked */
 }
 
-
 /* Body */
 body {
     margin: 0%;
@@ -13,6 +12,12 @@ body {
     font-family: Avant Garde, Helvetica;
     font-size: 1.5vw;
 
+}
+
+/* This section contributes to the fade effect for the page that occurs when the page is loaded */
+body.fade-out {
+    opacity: .1; /* This sets the level of opacity at the start of page load */
+    transition: none;
 }
 
 /* Navbar */
@@ -77,13 +82,23 @@ body {
 	background-color: darkgray;
 }
 
+/* This causes the video to zoom out from a zoomed in position upon page load */
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.5,1.5);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
 /* Video */
 #Golden_Matrix {
 	position: fixed;
 	right: 0;
 	bottom: 0;
     min-height: 100%;
-    top: 0;
+    top: -255px;
     z-index: -1;
     animation: zoominoutsinglefeatured 5s;
 }
@@ -99,6 +114,7 @@ body {
     position: relative;
     -webkit-animation: moveNav 4s;
     animation: movevideoText;
+    overflow: hidden;
 }
 
 /* Slideshow Styling */
@@ -182,7 +198,7 @@ body {
 }
 
 /* Number text (1/6, 2/6, etc) - we have set this display to none, which means these are hidden */
-.Slide-Number {
+.Slide_Number {
     color: white;
     position: absolute;
     top: 0;
@@ -260,7 +276,7 @@ h1 {
 p {
 	font-family: Perpetua, Rockwell Extra Bold;
 	text-align: justify;
-	letter-spacing: 1vw;
+	letter-spacing: .1vw;
 	font-size: 1.5vw;
 	padding-left: 1vw;
 	padding-right: 1vw;
@@ -270,7 +286,7 @@ p {
 center {
 	font-family: Perpetua, Rockwell Extra Bold;
 	text-align: center;
-	letter-spacing: 1vw;
+	letter-spacing: .1vw;
 	font-size: 1.5vw;
 	padding-left: 5vw;
 	padding-right: 5vw;
@@ -289,7 +305,7 @@ q {
 
 /* Image elements */
 img {
-	filter: grayscale(50%);
+	filter: grayscale(60%);
 	border-radius: 8px; /* ---------------------------------------------------------- */
 	max-width: 100%;
 	height: 100%;
