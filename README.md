@@ -6,4 +6,4 @@ This directory contains html files corresponding with similarly named JS files i
 
 ## Javascript Folder
 
-This directory shows a vareity of Javascript skills with more complexity, with titles usually explaining the task I am undertaking.
+This directory shows a vareity of Javascript skills with more complexity, with titles explaining the task I am undertaking.
